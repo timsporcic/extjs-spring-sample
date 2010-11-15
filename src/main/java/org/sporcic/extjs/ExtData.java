@@ -1,6 +1,5 @@
-package com.codezombie.extjs;
+package org.sporcic.extjs;
 
-import com.codezombie.extjs.ExtResponse;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
 

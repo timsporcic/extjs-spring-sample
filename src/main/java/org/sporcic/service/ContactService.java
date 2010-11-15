@@ -1,22 +1,22 @@
-package com.codezombie.service;
+package org.sporcic.service;
 
-import com.codezombie.domain.Client;
+import org.sporcic.domain.Contact;
 
 import java.util.List;
 
 /**
  * Interface for the Client Service
  */
-public interface ClientService {
+public interface ContactService {
 
-    public Client findById(Long id);
+    public Contact findById(Long id);
 
-    public List<Client> searchForClient(String criteria);
+    public List<Contact> searchForContact(String criteria);
 
-    public List<Client> getAllClients();
+    public List<Contact> getAllContacts();
 
-    public Client addClient(Client client);
+    public Contact addContact(Contact client);
 
-    public void deleteClient(int id);
+    public void deleteContact(int id);
 
 }

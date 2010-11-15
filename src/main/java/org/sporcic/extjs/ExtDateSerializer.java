@@ -1,4 +1,4 @@
-package com.codezombie.extjs;
+package org.sporcic.extjs;
 
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonSerializer;

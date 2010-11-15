@@ -1,7 +1,7 @@
-package com.codezombie.service;
+package org.sporcic.service;
 
-import com.codezombie.domain.Client;
-import com.codezombie.repository.ClientDao;
+import org.sporcic.domain.Contact;
+import org.sporcic.repository.ContactDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,17 +12,17 @@ import java.util.List;
  * ClientDao implementation.
  */
 @Service
-public class ClientServiceImpl implements ClientService {
+public class ContactServiceImpl implements ContactService {
 
     @Autowired
-    private ClientDao clientDao;
+    private ContactDao contactDao;
 
-    public Client findById(Long id) {
-        return clientDao.findById(id);
+    public Contact findById(Long id) {
+        return contactDao.findById(id);
 
     }
 
-    public List<Client> searchForClient(String criteria) {
+    public List<Contact> searchForContact(String criteria) {
 
         criteria = (criteria == null ? "":criteria.trim());
 
@@ -30,19 +30,19 @@ public class ClientServiceImpl implements ClientService {
             throw new IllegalArgumentException("Criteria must be at least 3 characters long");
         }
 
-        return clientDao.searchForClients(criteria);
+        return contactDao.searchForContact(criteria);
     }
 
-    public List<Client> getAllClients() {
-        return clientDao.listAll();
+    public List<Contact> getAllContacts() {
+        return contactDao.listAll();
     }
 
-    public Client addClient(Client client) {
+    public Contact addContact(Contact client) {
 
         return null;
     }
 
-    public void deleteClient(int id) {
+    public void deleteContact(int id) {
 
     }
     
