@@ -15,14 +15,7 @@ Ext.onReady(function(){
         }
     });
 
-    //App.myWriter = new App.SpringWriter();
-
-    App.myWriter = new Ext.data.JsonWriter({
-        encode          : false,
-        writeAllFields  : true,
-        listful         : true
-    });
-
+    App.myWriter = new App.SpringWriter();
 
     App.myProxy = new Ext.data.HttpProxy({
         restful         : true,
