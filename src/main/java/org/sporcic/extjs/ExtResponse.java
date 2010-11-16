@@ -10,7 +10,6 @@ import org.codehaus.jackson.map.annotate.JsonSerialize;
  * These fields will be serialized by Jackson JSON in the JSON format as
  * long as you annotate the controller method return value as @ResponseBody.
  */
-@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class ExtResponse {
 
     /**
@@ -35,7 +34,6 @@ public class ExtResponse {
         this.message = message;
     }
 
-    @JsonProperty("success")
     public boolean getSuccess() {
         return success;
     }
