@@ -17,12 +17,19 @@ Ext.onReady(function(){
 
     App.myWriter = new App.SpringWriter();
 
+    /*App.myWriter = new Ext.data.JsonWriter({
+        encode          : false,
+        writeAllFields  : true,
+        listful         : true
+    });*/
+
+
     App.myProxy = new Ext.data.HttpProxy({
         restful         : true,
         url             : '/contacts'
     });
 
-    App.User = Ext.data.Record.create([
+    App.Contact = Ext.data.Record.create([
          {name: 'id', type: 'integer'},
          {name: 'firstName', type: 'string'},
          {name: 'lastName', type: 'string'},
@@ -35,14 +42,12 @@ Ext.onReady(function(){
         idProperty      : 'id',
         root            : 'data',
         messageProperty : 'message'
-    }, App.User);
+    }, App.Contact);
 
-    // Typical Store collecting the Proxy, Reader and Writer together.
     App.myStore = new Ext.data.Store({
-        id              : 'user',
         proxy           : App.myProxy,
         reader          : App.myReader,
-        writer          : App.myWriter,  // <-- plugin an instance of our SpringWriter
-        autoSave        : false // <-- false would delay executing create, update,
+        writer          : App.myWriter,
+        autoSave        : false
     });
 });
