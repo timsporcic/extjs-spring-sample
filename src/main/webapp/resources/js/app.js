@@ -2,9 +2,6 @@ Ext.namespace('App');
 
 Ext.onReady(function(){
 
-  Ext.QuickTips.init();
-
-
     App.SpringWriter = Ext.extend(Ext.data.JsonWriter, {
         encode          : false,
         writeAllFields  : true,
@@ -18,16 +15,25 @@ Ext.onReady(function(){
         }
     });
 
-    App.myWriter = new App.SpringWriter();
+    //App.myWriter = new App.SpringWriter();
+
+    App.myWriter = new Ext.data.JsonWriter({
+        encode          : false,
+        writeAllFields  : true,
+        listful         : true
+    });
+
 
     App.myProxy = new Ext.data.HttpProxy({
         restful         : true,
-        url             : '/users'
+        url             : '/contacts'
     });
 
     App.User = Ext.data.Record.create([
          {name: 'id', type: 'integer'},
-         {name: 'name', type: 'string'}
+         {name: 'firstName', type: 'string'},
+         {name: 'lastName', type: 'string'},
+         {name: 'dob', type: 'date', dateFormat: 'Y-m-d'}
     ]);
 
     App.myReader = new Ext.data.JsonReader({

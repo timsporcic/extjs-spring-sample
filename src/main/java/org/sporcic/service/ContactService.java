@@ -5,18 +5,19 @@ import org.sporcic.domain.Contact;
 import java.util.List;
 
 /**
- * Interface for the Client Service
+ * Interface for the Contact Service
  */
 public interface ContactService {
 
-    public Contact findById(Long id);
+    public Contact findById(Integer id);
 
     public List<Contact> searchForContact(String criteria);
 
     public List<Contact> getAllContacts();
 
-    public Contact addContact(Contact client);
+    public List<Contact> addContacts(Contact[] contacts);
 
-    public void deleteContact(int id);
+    public List<Contact> updateContacts(Contact[] contacts);
 
+    public void deleteContacts(int[] ids);
 }

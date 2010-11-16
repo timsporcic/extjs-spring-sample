@@ -1,6 +1,7 @@
 package org.sporcic.extjs;
 
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 /**
  * Base class which represents a minimal payload to be returned
@@ -9,6 +10,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
  * These fields will be serialized by Jackson JSON in the JSON format as
  * long as you annotate the controller method return value as @ResponseBody.
  */
+@JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
 public class ExtResponse {
 
     /**
@@ -16,14 +18,16 @@ public class ExtResponse {
      */
     public final static ExtResponse SUCCESS = new ExtResponse(true, null);
 
-    @JsonProperty("message")
     protected String message = null;
 
-    @JsonProperty("success")
     protected boolean success = false;
 
     public ExtResponse() {
         //no-op constructor
+    }
+
+    public ExtResponse(boolean success) {
+        this(success,null);
     }
 
     public ExtResponse(boolean success, String message) {
@@ -31,6 +35,7 @@ public class ExtResponse {
         this.message = message;
     }
 
+    @JsonProperty("success")
     public boolean getSuccess() {
         return success;
     }
@@ -39,6 +44,7 @@ public class ExtResponse {
         this.success = success;
     }
 
+    @JsonSerialize(include=JsonSerialize.Inclusion.NON_NULL)
     public String getMessage() {
         return message;
     }
@@ -46,6 +52,4 @@ public class ExtResponse {
     public void setMessage(String message) {
         this.message = message;
     }
-
-
 }

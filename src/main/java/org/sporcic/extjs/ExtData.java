@@ -1,9 +1,10 @@
 package org.sporcic.extjs;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -27,21 +28,18 @@ public class ExtData extends ExtResponse {
      */
     public void add(Object item) {
 
-        if(item != null) {
+        if(item == null) return;
+
+        if(item instanceof Collection) {
+
+            for(Object object : (Collection) item) {
+                data.add(object);
+                total++;
+            }
+
+        } else {
             data.add(item);
             total++;
-        }
-
-    }
-
-    /**
-     * Convenience method to add a list of items to the returned data array
-     * @param list the list to add to the array
-     */
-    public void add(List<Object> list) {
-
-        for(Object item : list) {
-            add(item);
         }
     }
 }

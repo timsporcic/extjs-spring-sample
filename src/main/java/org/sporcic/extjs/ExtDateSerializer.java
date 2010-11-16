@@ -16,7 +16,8 @@ import java.util.Date;
 public class ExtDateSerializer extends JsonSerializer<Date> {
 
     // the date format to use
-    private final static String FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+    //private final static String FORMAT = "yyyy-MM-dd'T'HH:mm:ss";
+    private final static String FORMAT = "yyyy-MM-dd";
 
     @Override
     public void serialize(Date value, JsonGenerator gen, SerializerProvider provider) throws IOException {
